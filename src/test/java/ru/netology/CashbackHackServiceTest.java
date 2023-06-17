@@ -1,9 +1,8 @@
 package ru.netology;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
-import static org.testng.Assert.*;
 
 public class CashbackHackServiceTest {
 
@@ -11,46 +10,46 @@ public class CashbackHackServiceTest {
 
     @Test
     public void testRemainIfAmountLessBorderBoundary() {
-        Assert.assertEquals(service.remain(999), 1);
+        Assert.assertEquals(1, service.remain(999));
     }
 
     @Test
     public void testRemainIfAmountAboveBorderBoundary() {
-        Assert.assertEquals(service.remain(1001), 999);
+        Assert.assertEquals(999, service.remain(1001));
     }
 
     @Test
     public void testRemainIfAmountLessBoundary() {
-        Assert.assertEquals(service.remain(560), 440);
+        Assert.assertEquals(440, service.remain(560));
     }
 
     @Test
     public void testRemainIfAmountAboveBoundary() {
-        Assert.assertEquals(service.remain(1689), 311);
+        Assert.assertEquals(311, service.remain(1689));
     }
 
     @Test
     public void testRemainIfAmountEqualBoundary() {
-        Assert.assertEquals(service.remain(1000), 0);
+        Assert.assertEquals(0, service.remain(1000));
     }
 
     @Test
     public void testRemainIfAmountMultipleBoundary() {
-        Assert.assertEquals(service.remain(5000), 0);
+        Assert.assertEquals(0, service.remain(5000));
     }
 
     @Test
     public void testRemainIfAmountZeroBoundary() { // баг - покупка на 0
-        Assert.assertEquals(service.remain(0), 1000);
+        Assert.assertEquals(1000, service.remain(0));
     }
 
     @Test
     public void testRemainIfAmountNegativeBoundary() { // баг - покупка на отрицательное
-        Assert.assertEquals(service.remain(-100), 1100);
+        Assert.assertEquals(1100, service.remain(-100));
     }
 
     @Test
     public void testRemainIfAmountOne() {
-        Assert.assertEquals(service.remain(1), 999);
+        Assert.assertEquals(999, service.remain(1));
     }
 }
